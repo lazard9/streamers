@@ -1,0 +1,211 @@
+/*--------------------------------------------------------------
+## Banners
+--------------------------------------------------------------*/
+.banner-homepage {
+	height: 640px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 0;
+    background-attachment: fixed;
+    position: relative;
+	box-shadow: inset 0 -270px 115px -115px $black;
+
+	@include mq($tablet + 1, min) {
+		height: 805px;
+		box-shadow: inset 0 -335px 145px -145px $black;
+	}
+
+	@include mq($lap-large +1, min) {
+		height: 970px;
+		box-shadow: inset 0 -400px 175px -175px $black;
+	}
+}
+
+.banner-homepage-caption {
+	@include center;
+	top: 38.5%;
+	text-align: center;
+	max-width: 330px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+
+	@include mq($phone + 1, min) {
+		max-width: 480px;
+	}
+
+	@include mq($tablet + 1, min) {
+		top: 41.5%;
+		max-width: 782px;
+	}
+
+	@include mq($lap-large +1, min) {
+		top: 46.5%;
+	}
+
+	h1 {
+		font-family: 'Gotham';
+		font-weight: 900;
+		//font-size: 90px;
+		font-size: 36px;
+		margin-bottom: 60px;
+		position: relative;
+
+		@include mq($phone + 1, min) {
+			font-size: 44px;
+			margin-bottom: 70px;
+		}
+
+		@include mq($tablet + 1, min) {
+			margin-bottom: 80px;
+			font-size: 72px;
+		}
+
+		img {
+			margin: 0 auto;
+			line-height: 1;
+			width: 360px;
+
+			@include mq($tablet + 1, min) {
+				width: 590px;
+			}
+		}
+
+		a {
+			color: $white;
+		}
+
+		span {
+			background-color: $main-blue;
+			height: 18px;
+			width: 18px;
+			display: inline-block;
+			margin: 0 4px;
+		}
+
+		&::after {
+			position: absolute;
+			content: '';
+			background-color: $main-blue;
+			height: 6px;
+			width: 100px;
+			left: 0;
+			right: 0;
+			bottom: -36px;
+			margin: 0 auto;
+
+			@include mq($phone + 1, min) {
+				bottom: -41px;
+			}
+
+			@include mq($tablet + 1, min) {
+				bottom: -46px;
+			}
+		}
+	}
+
+	p {
+    	font-size: 20px;
+		margin-bottom: 32px;
+
+		@include mq($tablet +1, min) {
+			font-size: 24px;
+			margin-bottom: 48px;
+		}
+
+		span {
+			color: $main-blue;
+			font-weight: 700;
+			
+			@include mq($phone) {
+				display: block;
+			}
+		}
+	}
+}
+
+.search-component {
+	.search-form {
+		border: none;
+		color: #fff;
+		border-radius: 2px;
+		box-sizing: border-box;
+		display: flex;
+		position: relative;
+		max-width: 752px;
+
+		label {
+			display: flex;
+			flex: 1;	
+
+			input.search-field {
+				width: 100%;
+				background-color: $black;
+				color: $white;
+				border: 1px solid $main-blue;
+				height: 50px;
+				//font-size: 14px;
+				border-radius: 8px;
+				box-shadow: 0 0 10px $main-blue;
+				padding-left: 20px;
+				padding-right: 43px;
+				transform: translate(0.25px, 0);
+
+				&::placeholder {
+					color: $gray-b5;
+				}
+
+				@include mq($phone + 1, min) {
+					padding-right: 63px;
+					padding-left: 24px;
+				} 
+
+				@include mq($tablet + 1, min) {
+					//font-size: 16px;
+					height: 60px;
+					padding-left: 28px;
+					padding-right: 83px;
+				}
+
+			}
+		}
+
+		.search-submit {
+			background-color: $main-blue;
+			border: 0;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			height: 52px;
+			width: 44px;
+			border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+			transform: translate(0.25px, 0);
+
+			@include mq($phone + 1, min) {
+				width: 64px;
+			}
+
+			@include mq($tablet + 1, min) {
+				width: 84px;
+				height: 62px;
+			}
+
+			img {
+				margin: 0 auto;
+				width: 18px;
+
+				@include mq($tablet + 1, min) {
+					width: 20px;
+				}
+			}
+
+			.font-search {
+				color: $white;
+				//font-size: 18px;
+				font-size: 21px;
+			}
+		}
+	}
+}
+

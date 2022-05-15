@@ -1,0 +1,152 @@
+/*--------------------------------------------------------------
+## Streamer Contact
+--------------------------------------------------------------*/
+.contact-wrapper {
+    padding-top: 150px;
+    padding-bottom: 69px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 0;
+    background-attachment: fixed;
+
+    @include mq($phone + 1, min) {
+        padding-top: 185px;
+    }
+
+    @include mq($tablet + 1, min) {
+        padding-top: 220px;
+    }
+}
+
+.contact-title {
+    
+    h1.entry-title {
+        font-weight: 500;
+        text-align: center;
+        font-size: 36px;
+        margin: 0 auto 84px;
+		position: relative;
+        max-width: 360px;
+
+		@include mq($phone + 1, min) {
+			font-size: 54px;
+            max-width: none;
+			margin-bottom: 100px;
+		}
+
+		@include mq($tablet + 1, min) {
+			font-size: 72px;
+            margin-bottom: 114px;
+		}
+
+        &::after {
+            position: absolute;
+			content: '';
+			background-color: $main-blue;
+			height: 6px;
+			width: 100px;
+			left: 0;
+			right: 0;
+			bottom: -38px;
+			margin: 0 auto;
+
+			@include mq($phone + 1, min) {
+				bottom: -43px;
+			}
+
+			@include mq($tablet + 1, min) {
+				bottom: -48px;
+			}
+		}
+    }
+}
+
+.contact-content {
+	max-width: 1264px;
+	margin: 0 auto;
+
+	ul {
+		@include mq($phone-l + 1, min) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		li {
+			text-align: center;
+			margin-bottom: 64px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+				width: 100%;
+			}
+
+			@include mq($phone-l + 1, min) {
+				width: 50%;
+				margin-bottom: 73px;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+
+			img {
+				width: 94px;
+				margin: 0 auto 30px;
+
+				@include mq($tablet + 1, min) {
+					width: 112px;
+					margin-bottom: 35px;
+				}
+			}
+
+			/*img.team {
+				width: 105px;
+				margin: 0 auto 28px;
+				position: relative;
+				top: -5px;
+
+				@include mq($tablet + 1, min) {
+					width: 124px;
+				}
+			}
+
+			img.suppor {
+				width: 145px;
+				margin: 0 auto 5px;
+
+				@include mq($tablet + 1, min) {
+					width: 172px;
+				}
+			}*/
+
+			p {
+				font-size: 20px;
+				line-height: 1.167;
+				color: $gray-b5;
+				margin-bottom: 16px;
+
+				&:not(:first-of-type) {
+					margin-bottom: 6px;
+				}
+
+				span {
+					color: $main-blue;
+					font-weight: 500;
+				}
+
+				@include mq($tablet + 1, min) {
+					font-size: 24px;
+				}
+
+				a {
+					color: $gray-b5;
+					display: inline-block;
+					transition: $dur $ease;
+
+					&:hover {
+						color: $main-blue;
+					}
+				}
+			}
+		}
+	}
+}

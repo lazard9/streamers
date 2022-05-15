@@ -1,0 +1,278 @@
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.site-header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1001;
+
+	&.resize-header {
+		background-color: $black;
+
+		.header-content {
+			height: 62px;
+		}
+	}
+}
+
+.header-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: transparent;
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	margin: 0 auto;
+	height: 124px;
+	z-index: 10;
+	transition: $dur $ease;
+	
+	.site-branding {
+		color: $white;
+		max-width: 245px;
+		z-index: 501;
+	}
+}
+
+.header-search {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+
+	@include mq($phone + 1, min) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	@include mq($tablet + 1, min) {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+
+	&.state {
+		@include mq($phone-l) {
+			background-color: $black;
+			z-index: 502;
+			transition: $dur $ease;
+		}
+
+		.search-position {
+			width: 100%;
+			background: #232323;
+			border-bottom: 1px solid #414141;
+
+			@include mq($phone-l + 1, min) {
+				max-width: 450px;
+			}
+
+			@include mq($tablet + 1, min) {
+				max-width: 600px;
+			}
+
+			.search-form {
+				//width: 600px;
+				width: 100%;
+				opacity: 1;
+				visibility: visible;
+				
+				input.search-field {
+					width: 100%;
+					padding-left: 38px;
+
+					@include mq($tablet + 1, min) {
+						padding-left: 45px;
+					}
+				}
+			}
+
+			.toggle-search {
+				&::before {
+					opacity: 0;
+				}
+				
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.search-position {
+		position: relative;
+		width: auto;
+		padding: 5px 25px 5px 10px;
+		border-radius: 3px;
+		overflow: hidden;
+		transition: $dur $ease;
+		border-bottom: 1px solid transparent;
+		margin-left: auto;
+
+		.search-form {
+			visibility: hidden;
+			box-sizing: border-box;
+			position: relative;
+			margin-left: auto;
+			transition: $dur $ease;
+			width: 0;
+			opacity: 0;
+
+			label {
+				display: flex;
+				flex: 1;	
+
+				input.search-field {
+					//transition: $dur $ease;
+					width: 0;
+					margin-left: auto;
+					background-color: $gray-23;
+					color: $gray-b5;
+					border: 0;
+					//font-size: 14px;
+					padding-left: 0;
+
+					&::placeholder {
+						color: $gray-b5;
+					}
+				}
+			}
+
+			.search-submit {
+				background-color: transparent;
+				border: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 0;
+
+				.font-search {
+					color: $gray-77;
+					//font-size: 18px;
+					font-size: 21px;
+				}
+			}
+		}
+		
+		.toggle-search {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			color: $gray-77;
+			//font-size: 18px;
+			font-size: 21px;
+			cursor: pointer;
+
+			&::before {
+				transition: $dur $ease;
+				opacity: 1;
+			}
+
+			&::after {
+				content: '\2715';
+				position: absolute;
+				font-weight: 700;
+				opacity: 0;
+				transition: $dur $ease;
+				//font-size: 20px;
+				font-size: 23px;
+			}
+		}
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+## Menu Btn
+--------------------------------------------------------------*/
+.menu-btn {
+	display: none;
+	width: 30px;
+	height: 19px;
+	right: 15px;
+	top: 21px;
+	position: absolute;
+	z-index: 110;
+
+	&::after,
+	&::before,
+	span {
+		width: 100%;
+		height: 3px;
+		position: absolute;
+		display: block;
+		background-color: $white;
+	}
+
+	&::after,
+	&::before {
+		content: '';
+		transition: $dur width $dur $ease;
+	}
+
+	&::after {
+		top: 0;
+		left: 0;
+	}
+
+	&::before {
+		bottom: 0;
+		right: 0;
+	}
+
+	span {
+		top: 50%;
+		margin-top: -1.5px;
+		transition: transform $dur $ease;
+
+		&::before {
+			content: '';
+			background-color: $white;
+			width: 100%;
+			height: 3px;
+			position: absolute;
+			left: 0;
+			transition: transform $dur $ease;
+		}
+	}
+
+	&.open {
+		&::after,
+		&::before {
+			transition: $dur $ease;
+			width: 0;
+		}
+
+		&::after {
+			left: 0;
+		}
+
+		&::before {
+			right: 0;
+		}
+
+		span {
+			transform: rotate(45deg);
+			transition: $dur transform $dur $ease;
+			position: relative;
+			&::before {
+				transform: rotate(-90deg);
+				transition: $dur transform $dur $ease;
+			}
+		}
+	}
+
+	@include mq($phone) {
+		display: block;
+	}
+}

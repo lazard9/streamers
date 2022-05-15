@@ -1,0 +1,100 @@
+/*!
+Theme Name: Streamers
+Theme URI: http://underscores.me/
+Author: PopArt Studio
+Author URI: http://underscores.me/
+Description: Custom WordPress theme. The theme is based on _s (underscores) framework and includes a wide variety of functionalities that can serve for your content management without having to have programming skills.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: streamers
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+streamers is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Reset and Variables
+# Helpers
+# Bootstrap
+# WooCommerce
+# Base
+# Parts
+# Components / Templates
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Reset and Variables
+--------------------------------------------------------------*/
+@import 'config/reset';
+@import 'base/fonts';
+@import 'config/variables';
+@import 'base/icon-font';
+
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+@import 'helpers/mixins';
+@import 'helpers/helpers';
+@import 'helpers/print';
+
+/*--------------------------------------------------------------
+# Bootstrap
+--------------------------------------------------------------*/
+//@import 'bootstrap/bootstrap-grid';
+
+/*--------------------------------------------------------------
+# WooCommerce
+--------------------------------------------------------------*/
+//@import 'woocommerce/main';
+//@import 'woocommerce/tables';
+//@import 'woocommerce/products';
+//@import 'woocommerce/single-product';
+//@import 'woocommerce/checkout';
+//@import 'woocommerce/components';
+//@import 'woocommerce/widgets';
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import 'base/typography';
+@import 'base/base';
+@import 'base/layout';
+
+/*--------------------------------------------------------------
+# Parts
+--------------------------------------------------------------*/
+@import 'parts/buttons';
+@import 'parts/forms';
+@import 'parts/media';
+
+/*--------------------------------------------------------------
+# Components / Templates
+--------------------------------------------------------------*/
+@import 'components/site-header';
+@import 'components/site-navigation';
+@import 'components/site-footer';
+@import 'components/site-entry-content';
+
+// @import 'components/component-';
+@import 'components/component-banner-example';
+@import 'components/component-banner-homepage';
+@import 'components/component-streamers-filter';
+@import 'components/component-streamer-profile';
+@import 'components/component-modal';
+@import 'components/component-text-block';
+@import 'components/component-about';
+@import 'components/component-contact';
+@import 'components/component-search';
+@import 'components/component-archive';
+@import 'components/component-404';
