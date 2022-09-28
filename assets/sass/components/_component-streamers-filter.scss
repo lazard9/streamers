@@ -1,0 +1,638 @@
+/*--------------------------------------------------------------
+## Streamers filter
+--------------------------------------------------------------*/
+.streamers-filter-wrapper {
+	margin-top: -145px;
+	position: relative;
+}
+
+.font-twitch {
+	color: $stream-twitch;
+	position: relative;
+	font-size: 20px;
+}
+
+.font-youtube {
+	color: $stream-youtube;
+	position: relative;
+	font-size: 14px;
+}
+
+.font-mixer {
+	color: $stream-mixer;
+	position: relative;
+	font-size: 18px;
+	&::after {
+		font-family: 'fonticons';
+		content: '\E007';
+		color: $white;
+		width: 50%;
+		height: 100%;
+		display: inline-block;
+		position: absolute;
+		left: 0;
+		overflow: hidden;
+	}
+}
+
+.streamers-filtering {
+	grid-gap: 32px 0;
+	max-width: 331px;
+	margin: 0 auto 77px;
+
+	@include mq($phone + 1, min) {
+		max-width: 700px;
+	}
+
+	@include mq($tablet + 1, min) {
+		max-width: 1070px;
+	}
+
+	@include mq($lap-large + 1, min) {
+		max-width: none;
+	}
+
+	h2.fltr-title {
+		font-size: 30px;
+		font-weight: 500;
+		position: relative;
+		margin-bottom: 0;
+
+		@include mq(992, min) {
+			font-size: 36px;
+		}
+
+		&::before {
+			position: relative;
+			content: '';
+			background-color: $gray-77;
+			height: 6px;
+			width: 100px;
+			display: block;
+			margin-bottom: 18px;
+		}
+	}
+
+	span.featured {
+		color: $gray-77;
+
+		@include mq(991) {
+			font-size: 14px;
+		}
+	}
+
+	.filter-by {
+		margin: 40px auto 35px;
+		border-radius: 10px;
+		min-height: 71px;
+		background-color: #2b2d33;
+		//padding: 0 20px 20px;
+		padding: 20px 20px 0;
+
+
+		@include mq($phone + 1, min) {
+			display: flex;
+		}
+
+		@include mq($tablet + 1, min) {
+			margin: 48px auto 42px;
+		}
+
+		span.filters {
+			color: $main-blue;
+			width: 106px;
+			margin-right: 24px;
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 1.1875;
+			/*display: flex;
+			align-items: center;
+			height: 71px;*/
+			display: block;
+			height: 51px;
+
+			/*@include mq($phone) {
+				padding-top: 20px;
+			}*/
+
+			@include mq($tablet + 1, min) {
+				width: 126px;
+				margin-right: 32px;
+				//margin-right: 64px;
+			}
+		}
+	
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			flex: 1;
+
+			span.filters {
+				color: $main-blue;
+				width: 106px;
+				margin-right: 24px;
+
+				@include mq($phone + 1, min) {
+					width: 50%;
+				}
+
+				@include mq($tablet + 1, min) {
+					width: 126px;
+					margin-right: 64px;
+				}
+			}
+
+			li {
+				/*height: 71px;
+				display: flex;
+				align-items: center;*/
+				line-height: 1.1875;
+				width: 100%;
+				margin-bottom: 20px;
+
+				@include mq($phone + 1, min) {
+					width: 50%;
+				}
+
+				@include mq($tablet + 1, min) {
+					width: 33.333333%;
+					max-width: 260px;
+				}
+
+				.dropdown {
+					position: relative;
+					width: 100%;
+
+					@include mq($tablet + 1, min) {
+						margin-left: 10%;
+					}
+				}
+
+				.dropbtn {
+					cursor: pointer;
+					border: 0;
+					text-transform: uppercase;
+					background-color: transparent;
+					font-weight: 700;
+					padding: 0 19px 0 0;
+					position: relative;
+					transition: $dur $ease;
+					
+					span {
+						position: absolute;
+						right: -4px;
+						font-size: 21px;
+						line-height: 1;
+						top: 49%;
+						transform: translateY(-49%);
+					}
+					
+					&:hover,
+					&.buttonSelected {
+						color: $main-blue;
+					}
+				}		
+				
+				.filter-selection {
+					display: inline-block;
+					font-size: 12px;
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					margin-top: 5px;
+					/*position: absolute;
+					top: 27px;
+					left: 0;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;*/
+					padding: 3px 6px;
+					background-color: $gray-23;
+					border: 1px solid $gray-41;
+					border-radius: 4px;
+					
+
+					@include mq($tablet + 1, min) {
+						margin-right: 24px;
+					}
+				}
+
+				.dropdown-content {
+					display: none;
+					position: absolute;
+					background-color: $gray-23;
+					min-width: 230px;
+					overflow: auto;
+					border: 1px solid $gray-41;
+					z-index: 100;
+					top: 56px;
+					border-radius: 3px;
+					max-height: 264px;
+
+					&.showDropdown {
+						display: block;
+					}
+
+					div {
+						position: relative;
+
+						.font-search {
+							position: absolute;
+							top: 12px;
+							left: 9px;
+							font-size: 16px;
+							color: $white;
+						}
+
+						.myImputStyle {
+							box-sizing: border-box;
+							background-color: $black;
+							padding: 10px 10px 10px 32px;
+							border: none;
+							width: 100%;
+							
+							&:focus {
+								box-shadow: inset 0 0 3px $main-blue;
+							}
+						}
+					}
+								
+					.btn1,
+					.btn2,
+					.btn3,
+					.btn4,
+					.btn5,
+					.btn6 {
+						color: $white;
+						background-color: $gray-23;
+						padding: 12px 16px;
+						text-decoration: none;
+						border: none;
+						outline: none;
+						cursor: pointer;
+						position: relative;
+						border-top: 1px solid $gray-41;
+						//display: none;
+
+						&:first-of-type,
+						&.filtered {
+							display: block;
+						}
+
+						&.btn-background {
+							background-color: $gray-2d;
+						}
+
+						&::after {
+							content: '';
+							height: 0;
+							width: 100%;
+							background-color: $main-blue;
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							transition: $dur $ease;
+						}
+						
+						&:hover::after {
+							height: 2px;
+						}
+					}
+		
+					.btn1 {	
+						display: none;		
+						&.active1::after {
+							height: 2px;
+						}
+					}
+					
+					.btn2 {
+						display: none;						
+						&.active2::after {
+							height: 2px;
+						}
+					}
+					
+					.btn3 {
+						display: none;
+						&.active3::after {
+							height: 2px;
+						}
+					}
+
+					.btn4,
+					.btn5,
+					.btn6 {
+						display: block;
+						&:nth-of-type(2n + 2) {
+							background-color: $gray-2d;
+						}
+					}
+
+					.btn4 {
+						&.active1::after {
+							height: 2px;
+						}
+					}
+					.btn5 {
+						&.active2::after {
+							height: 2px;
+						}
+					}
+					.btn6 {
+						&.active3::after {
+							height: 2px;
+						}
+					}
+				}	
+			}
+		}
+	}
+	
+	.filter-cat-results .f-cat {
+		display: none;
+		opacity: 0;
+		
+		&.active {
+			opacity: 1;
+			display: block;
+			animation: fadeIn 0.65s $ease;
+		}
+	}
+
+	.streamers-ul {
+		//display: grid;
+		//grid-gap: 30px 0;
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 50px;
+
+		@include mq($phone + 1, min) {
+			margin-bottom: 84px;
+			//grid-template-columns: 47.14% 47.14%;
+			//grid-template-columns: 1fr 1fr;
+			//grid-gap: 40px 5.72%;
+			margin: 0 -2.86% 84px;
+		}
+
+		@include mq($tablet + 1, min) {
+			//grid-template-columns: 30.84% 30.84% 30.84%;
+			//grid-template-columns: 1fr 1fr 1fr;
+			//grid-gap: 40px 3.74%;
+			margin: 0 -1.87% 48px;
+		}
+
+		@include mq($lap-large + 1, min) {
+			//grid-template-columns: 23% 23% 23% 23%;
+			//grid-template-columns: 1fr 1fr 1fr 1fr;
+			//grid-gap: 40px 2.666666%;
+			margin: 0 -1.333333% 96px;
+		}
+
+		.streamer-li {
+			width: 100%;
+			margin-bottom: 30px;
+			order: 1;
+			@include mq($phone + 1, min) {
+				width: 50%;
+				padding: 0 2.86%;
+				margin-bottom: 40px;
+			}
+
+			@include mq($tablet + 1, min) {
+				width: 33.333333%;
+				padding: 0 1.87%;
+			}
+
+			@include mq($lap-large + 1, min) {
+				width: 25%;
+				padding: 0 1.333333%;
+			}
+
+			&.last-element {
+				order: 2;
+
+				.streamer-article {
+					background-color: transparent;
+					
+					@include mq($phone) {
+						height: 200px;
+					}
+				}
+			}
+		}
+
+		.streamer-article {
+			height: 250px;
+			border-radius: 7px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+			background-color: $gray-23;
+
+			a {
+				color: $white;
+				display: block;
+				height: 100%;
+			}
+
+			.player-info {
+				position: absolute;
+				left: 15px;
+				bottom: 21px;
+				z-index: 2;
+
+				.name,
+				.platform-twitch,
+				.platform-youtube,
+				.platform-mixer {
+					display: flex;
+
+					img {
+						align-self: flex-start;
+					}
+				}
+
+				.name {
+					margin-bottom: 5px;
+					
+					img {
+						width: 24px;
+					}
+
+					div {
+						display: flex;
+						flex-direction: column;
+						margin-left: 8px;
+
+						span:nth-of-type(1)  {
+							font-size: 18px;
+							font-weight: 700;
+							line-height: 1.1875;
+						}
+
+						span:nth-of-type(2) {
+							font-size: 13px;
+							color: $gray-b5;
+							line-height: 1.15;
+							//position: relative;
+							//top: -5px;
+						}
+					}
+				}
+
+				.platform-twitch,
+				.platform-youtube,
+				.platform-mixer {
+					align-items: center;
+					position: relative;
+
+					.platform {
+						font-size: 13px;
+						line-height: 1.15;
+						display: flex;
+						//margin-left: 5px;
+						margin-left: 10px;
+					}
+				}
+
+				.platform-twitch,				
+				.platform-mixer {
+					margin-left: 3px;
+				}
+				
+				.platform-youtube {
+					margin-left: 1px;
+				}
+			}
+		}
+
+		.streamer-youtube::before,
+		.streamer-twitch::before,
+		.streamer-mixer::before {
+			content: '';
+			height: 8px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			transition: $dur $ease;
+			opacity: .96;
+			pointer-events: none;
+		}
+
+		.streamer-youtube::before {
+			background-color: $stream-youtube;
+		}
+
+		.streamer-twitch::before {
+			background-color: $stream-twitch;
+		}
+
+		.streamer-mixer::before {
+			background-color: $stream-mixer;
+		}
+
+		.streamer-youtube::after,
+		.streamer-twitch::after,
+		.streamer-mixer::after {
+			content: '';
+			height: 0;
+			position: absolute;
+			bottom: 8px;
+			left: 0;
+			width: 100%;
+			transition: $dur $ease;
+			z-index: 1;
+			pointer-events: none;
+		}
+
+		.streamer-youtube:hover::after {
+			box-shadow: inset 0 -120px 67px -67px $stream-youtube;
+			height: 120px;
+		}
+
+		.streamer-twitch:hover::after {
+			box-shadow: inset 0 -120px 67px -67px $stream-twitch;
+			height: 120px;
+		}
+
+		.streamer-mixer:hover::after {
+			box-shadow: inset 0 -120px 67px -67px $stream-mixer;
+			height: 120px;
+		}
+
+		.suggest-creator {
+			@include center;
+			text-align: center;
+			width: 210px;
+
+			span.cant-find {
+				display: block;
+				font-size: 18px;
+				line-height: 1.1875;
+				margin-bottom: 15px;
+
+				span {
+					color: $main-blue;
+					font-weight: 500;
+				}
+			}
+
+			button {
+				color: $white;
+				background-color: $main-blue;
+				border: 0;
+				width: 210px;
+				height: 49px;
+				line-height: 49px;
+				font-size: 16px;
+				font-weight: 700;
+				display: inline-block;
+				border-radius: 4px;
+				transition: $dur $ease;
+
+				&:hover {
+					background-color: $main-blue-hover;
+				}
+			}
+		}
+	}
+
+	.load-more {
+		background-color: $black;
+		//height: 42px;
+		//width: 116px;
+		//font-size: 13px;
+		height: 49px;
+		width: 134px;
+		font-size: 15px;
+		margin: 0 auto;
+		display: block;
+		font-weight: 600;
+		border-radius: 3px;
+		letter-spacing: 0.5px;
+		padding-top: 2px;
+		border: 2px solid $white;
+		transition: $dur $ease;
+
+		&:hover {
+			color: $black;
+			background-color: $white;
+		}
+	}
+}
+
+#no-streamers {
+	display: none;
+	font-size: 24px;
+	font-weight: 500;
+	margin-top: 60px;
+}
+
+#filter-streamers .streamers-filtering .streamers-ul {
+	min-height: 580px;
+}

@@ -1,0 +1,233 @@
+/* !!! Modal !!! */
+.modal-body {
+	overflow: hidden;
+	position: relative;
+	&::before {
+		position: fixed;
+		display: block;
+		content: '';
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background-color: rgba($black, 0.8);
+		z-index: 1500;
+		animation: fadeIn $dur $ease;
+		transition: opacity $dur $ease;
+	}
+    
+    &.modal-fadeOut {
+	    &::before {
+		    opacity: 0;
+	    }
+    }
+}
+
+.modal {
+	transition: 0.01s $ease;
+	display: block;
+	opacity: 0;
+	height: 0;
+	position: fixed;
+	content: '';
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2000;
+	overflow: hidden;
+	overflow-y: auto;
+    
+    &.modal-visible {
+        opacity: 1;
+        height: auto;
+        bottom: 0;
+    }
+}
+
+.modal-inner {
+	transition: $dur $ease;
+	transform: translateY(-50px);
+	position: relative;
+	display: block;
+	background-color: $gray-23;
+    border-radius: 4px;
+	width: 90%;
+	max-width: 600px;
+	opacity: 0;
+	margin: 60px auto;
+	padding: 60px 20px 20px;
+    
+    &.modal-reveal {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+	@include mq($phone-l + 1, min) {
+		max-width: 749px;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	@include mq($tablet + 1, min) {
+		max-width: 1189px;
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	.js-close-modal {
+		transition: $dur $ease;
+		color: $white;
+		background-color: $gray-41;
+		position: absolute;
+		z-index: 2;
+		border-radius: 4px;
+		top: 20px;
+		right: 25px;
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		font-size: 30px;
+		cursor: pointer;
+		text-align: center;
+		&:hover {
+			color: $main-blue;
+		}
+	}
+
+	span.js-modal {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+		cursor: pointer;
+		display: block;
+	}
+
+	.modal-content {
+		margin-bottom: 12px;
+
+		p {
+        	font-weight: 500;
+        	font-size: 20px;
+        	margin: 0 auto;
+			max-width: 800px;
+			position: relative;
+			text-align: center;
+
+			&:first-of-type {
+				padding-bottom: 37px;
+
+				&::after {
+					content: '';
+					position: absolute;
+					background-color: $main-blue;
+					width: 100px;
+					height: 6px;
+					left: 0;
+					right: 0;
+					bottom: 16px;
+					margin: auto;
+				}
+			}
+
+			@include mq($tablet + 1, min) {
+				font-size: 24px;
+
+			}
+		}
+	}
+
+	.modal-form {
+		p {
+			margin-bottom: 21px;
+		}
+
+		label {
+			color: $gray-b5;
+			line-height: 2.7;
+
+			input,
+			textarea {
+				background: $gray-2d;
+				border-radius: 2px;
+				border: 0;
+			}
+
+			input {
+				height: 41px;
+				padding-left: 20px;
+				padding-right: 20px;
+				width: 100%;
+
+				@include mq($tablet + 1, min) {
+					height: 51px;
+				}
+			}
+
+			textarea {
+				height: 204px;
+				padding: 20px;
+				width: 100%;
+
+				@include mq($tablet + 1, min) {
+					height: 242px;
+				}
+			}
+		}
+
+		.flex-form-200-1 {
+			margin-top: 29px;
+
+			.wpcf7-submit {
+				color: $white;
+				background-color: $main-blue;
+				border: 0;
+				width: 192px;
+				height: 49px;
+				line-height: 49px;
+				font-size: 16px;
+				font-weight: 700;
+				display: inline-block;
+				border-radius: 4px;
+				transition: $dur $ease;
+				text-transform: uppercase;
+
+				&:hover {
+					background-color: $main-blue-hover;
+				}
+			}
+
+			span.flx-1 {
+				display: flex;
+				justify-content: flex-end;
+				align-self: center;
+				color: $gray-b5;
+
+				@include mq($phone-l) {
+					margin-top: 21px;
+				}
+			}
+		}
+
+		@include mq($phone-l + 1, min) {
+			.flex-form-50-50,
+			.flex-form-200-1 p {
+				display: flex;
+				justify-content: space-between;
+				vertical-align: center;
+			}
+
+			.flex-form-50-50 p {
+				width: 48.5%;
+			}
+
+			.flex-form-200-1 p {
+				span.flx-1 {
+					flex: 1;
+					margin-left: 30px;
+				}
+			}
+		}
+	}
+}

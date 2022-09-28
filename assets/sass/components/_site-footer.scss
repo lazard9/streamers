@@ -1,0 +1,117 @@
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-info {
+	min-height: 70px;
+	background-color: #2b2d33;
+	border-top: 1px solid #484848;
+	border-bottom: 1px solid #484848;
+	padding: 12px;
+
+	@include mq($tablet + 1, min) {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+	
+	.info-inner {
+		max-width: 1440px;
+		width: 100%;
+		margin: 0 auto;
+		
+		@include mq($tablet + 1, min) {
+			padding-left: 120px;
+			display: flex;
+		}
+	}
+
+	.col-contact__icons-wrap {	
+		@include mq($tablet) {
+			margin: 20px auto 10px;
+		}
+	}
+
+	.footer-navigation {
+		max-width: 445px;
+		width: 100%;
+		margin: 0 auto;
+
+		@include mq($phone + 1, min) {
+			max-width: 685px;
+		}
+
+		@include mq($lap-large + 1, min) {
+			max-width: 875px;
+		}
+
+		.secundary-menu {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			@include mq($tablet-l + 1, min) {
+				justify-content: space-between;
+			}
+
+			li {
+				margin: 10px;
+
+				a {
+					text-transform: uppercase;
+					font-size: 14px;
+					font-weight: 500;
+					color: $white;
+					transition: $dur $ease;
+					line-height: 1.215;
+				}
+				
+				a:hover {
+						color: $main-blue;
+				}
+			}
+		}
+	}
+}
+
+.col-contact__icons-wrap {
+	display: flex;
+	justify-content: center;
+	width: 122px;
+	align-items: center;
+
+	.sn-icon {
+		&:not(:first-child) {
+			margin-left: 14px;
+		}
+
+		span {
+			color: $gray-b5;
+			font-size: 19px;
+			transition: $dur $ease;
+
+			&:hover,
+			&:focus {
+				color: $main-blue;
+			}
+
+			&.font-youtube {
+				font-size: 17px;
+			}
+		}
+	}
+}
+
+.copyright {
+	display: block;
+	width: 100%;
+	margin: 0;
+	background-color: $black;
+	padding: 22px 15px;
+	text-align: center;
+	color: $gray-77;
+	font-size: 13px;
+	line-height: 1.3;
+
+	a {
+		color: $gray-77;
+	}
+}
